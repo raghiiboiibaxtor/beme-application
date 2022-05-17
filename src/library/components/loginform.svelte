@@ -1,5 +1,6 @@
 <script>
     // Declaring JavaScript
+    // Importing libraries 
     import {goto} from '$app/navigation';
     import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 
@@ -7,7 +8,7 @@
     export let title;
 
     // Initialising local variable with getAuth()
-    const auth = getAuth()
+    const auth = getAuth()  
 
     function login()
     {
@@ -24,7 +25,7 @@
                 // Storing user ID locally (allowing for access of user's files locally)
                 // Tokens & user's private data will be stored in Firebase
                 localStorage.setItem('uid', user.uid);
-                // Directing to project route 
+                // Directing to "home page" aka project route 
                 goto("/")
             
                 // Catching errors
