@@ -1,0 +1,82 @@
+
+//import from database
+
+<script>
+
+
+//Parent Class 
+class Users 
+{
+  constructor(fname,lname,role,about,email,pass) {
+        this.firstname = fname
+        this.lastname = lname
+        this.title = role
+        this.aboutme = about
+        this.emailaddress = email
+        this.password = pass
+  }
+  genericinfo()
+  {
+  	return "Current Role: "+this.title + "<br>"+"About them: "+this.aboutme
+  }
+  
+}
+
+/*
+//
+try composition in Javascript
+class skillset:
+    def __init__(self,*skills):
+    def __str__(self):
+        print("Your skills are ", {self.skills})
+class list_skills:
+    def __init__(self,skill):
+        self.skill = skill
+user_skills= skillset(”1”,”2”)
+skill1=
+Child Class for Skills
+class Skills extends Users {
+	constructor(fname,lname,role,about,email,pass, skill) {
+    super(fname,lname,role,about,email,pass);
+    this.skills = skill;
+}
+//Child Class for Experience
+class Experience extends Users {
+    constructor(fname,lname,role,about,email,pass, experience) {
+    super(fname,lname,role,about,email,pass);
+    this.experiences = experience;
+	
+}
+//Child Class for Portfolio
+class Portfolio extends Users {
+    constructor(fname,lname,role,about,email,pass, portfolio) {
+    super(fname,lname,role,about,email,pass);
+    this.portfolios = portfolio;
+	
+}
+*/
+const user1 = new Users("Nolene", "Human","Student","Love figuring shit out","email@earth.com","TopSecret");
+const user2 = new Users("Raghii", "Baxter","Student","Love making things work","email@space.com","SuperSecret");
+
+
+//(A) <p id="beme"></p>
+document.getElementById("beme").innerHTML =
+user1.firstname + " " + user1.lastname;
+
+
+document.getElementById("bemeTell").innerHTML = user1.genericinfo()
+//
+
+</script>
+
+
+<main>
+<h2>Basic BeMe User Information Class template </h2>
+<!--(A) this is calling the funciton in the Javascript script section-->
+<p id="beme"></p>
+<p id="bemeTell"></p>
+</main>
+
+
+
+  
