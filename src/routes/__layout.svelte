@@ -1,9 +1,12 @@
 <script>
+
     // Importing SDKs
     import App from "./fireb.js";
     import {onMount} from 'svelte';
     import { getAuth, onAuthStateChanged } from 'firebase/auth';
     import { goto } from '$app/navigation';
+
+
     
     
     // Mounting authentication. 

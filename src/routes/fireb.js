@@ -1,6 +1,10 @@
 // Importing the Firebase functions needed from SDKs
 import { initializeApp } from "firebase/app";
 
+// importing firebase database requirments
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+
 
 // Firebase app configuration
 const firebaseConfig = {
@@ -16,3 +20,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export default app;
+
+//Firestore function
+//export const database = firebase.firestore()
