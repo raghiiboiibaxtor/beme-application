@@ -1,4 +1,4 @@
-Updates to this code.
+Updates to the code 21.5.2022
 
 Step 1:
 
@@ -15,4 +15,5 @@ Added 3 .svelte pages
 
 /routes
 -- userprofilepage.svelte
+-- newuserprofile.svelt
 
