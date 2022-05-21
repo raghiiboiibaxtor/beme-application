@@ -32,8 +32,7 @@
                 console.error(error)
             })
         }
-
-        //else function direct user to signup.svelte
+        
         else { // If user does not exist: create new user
             createUserWithEmailAndPassword(auth, email, password) 
             .then((userCredential)=>{

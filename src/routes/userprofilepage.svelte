@@ -5,5 +5,3 @@
 
 
 // running the command for new users to enter data
-
-

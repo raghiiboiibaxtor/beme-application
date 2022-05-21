@@ -1,7 +1,11 @@
 <script>
 
-    // importing variable initiated in the fireb.js file
-    import {database} from './fireb.js'
+import {
+    getFirestore
+}    
+
+// importing variable initiated in the fireb.js file
+    //import {userdatabase} from './fireb.js'
 
 
     //if user exist then PULL detials FROM DATABASE to the form
@@ -27,8 +31,3 @@
 
 </script>
 
-
-
-
-
-<h1> Hallo User </h1>

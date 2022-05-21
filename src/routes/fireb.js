@@ -2,8 +2,12 @@
 import { initializeApp } from "firebase/app";
 
 // importing firebase database requirments
-import firebase from 'firebase/app'
-import 'firebase/firestore'
+import {
+  getFirestore,
+  collection,
+  getDoc
+}from 'firebase/firestore'
+
 
 
 // Firebase app configuration
@@ -19,7 +23,25 @@ const firebaseConfig = {
 // Initializise Firebase
 const app = initializeApp(firebaseConfig);
 
+//Initialise Services
+
+const userdatabase = getFirestore()
+
+
+//collection ref 
+// importing the function collection from the firebase libarary and then pass the database in firestore as an argument and reference to the collection in firebase
+const colRef = collection(userdatabase,UserDetails)
+
+//getting collection data (firebase) by using the firebase function 'GetDocs'
+//this is returning all the data in our firebase database
+getDoc(colRef)
+.then((snapshot)=>
+{
+  console.log(snapshot.docs)
+}
+)
+
+
 export default app;
 
-//Firestore function
-//export const database = firebase.firestore()
+
