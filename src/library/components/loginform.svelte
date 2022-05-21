@@ -24,7 +24,7 @@
                 // Storing user ID locally (allowing for access of user's files locally)
                 // Tokens & user's private data will be stored in Firebase
                 localStorage.setItem('uid', user.uid);
-                // Directing to project route 
+                // Directing to project route index.svelte
                 goto("/")
             
                 // Catching errors
@@ -32,6 +32,7 @@
                 console.error(error)
             })
         }
+        
         else { // If user does not exist: create new user
             createUserWithEmailAndPassword(auth, email, password) 
             .then((userCredential)=>{
@@ -79,6 +80,9 @@
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+              
+        
+        
         {#if title == "Login"}
           <p class="float-end mt-3">
             Not a user? <a href="/signup" class="card-link">Sign Up</a>
