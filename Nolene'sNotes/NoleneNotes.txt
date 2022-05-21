@@ -3,8 +3,6 @@ npm commands
 APPLICATION database variable name == userdatabase
 FIRESTORE collection(aka database) name == UsersDetail
 
-
-
 All commands:
 
     access, adduser, audit, bin, bugs, cache, ci, completion,
@@ -18,12 +16,16 @@ All commands:
     uninstall, unpublish, unstar, update, version, view, whoam
 
 
-Updates to the code 20.5.2022
+Updates to the code 21.5.2022
 
 Step 1:
 
 Added to fireb.js
-import features for Firebase and firestore
+import Firebase/ firestore
+initialsed a database
+
+
+
 
 step 2:
 
@@ -31,6 +33,7 @@ Added 3 .svelte pages
 
 /library/components/
 -- userporfileform.svelte
+import user database
 
 
 /routes
@@ -40,8 +43,9 @@ Added 3 .svelte pages
 Updates to the code 21.5.2022
 
 1.
-Added firebase function called userdatabase to fireb.js
+Added firebase function calling userdatabase from fireb.js firestore
 
 2.
 in userprofileform pointed to the userdatabase function in fireb.js
 
+Changes to original code
