@@ -5,7 +5,8 @@ import { initializeApp } from "firebase/app";
 import {
   getFirestore,
   collection,
-  getDoc
+  getDocs,
+  doc
 }from 'firebase/firestore'
 
 
@@ -30,15 +31,22 @@ const userdatabase = getFirestore()
 
 //collection ref 
 // importing the function collection from the firebase libarary and then pass the database in firestore as an argument and reference to the collection in firebase
-const colRef = collection(userdatabase,UserDetails)
+const colRef = collection(userdatabase,'UsersDetail')
 
 //getting collection data (firebase) by using the firebase function 'GetDocs'
 //this is returning all the data in our firebase database
-getDoc(colRef)
+getDocs(colRef)
 .then((snapshot)=>
-{
-  console.log(snapshot.docs)
-}
+  {
+    //user array
+    let users =[]
+    // running throuhg the DATAbase storing it into the array 
+    snapshot.docs.forEach((data) => {
+        users.push({...data.data(), id: data.id})
+    })
+    //displaying the actual DATA from our database in a console log (not on screen)
+    console.log(users)
+  }
 )
 
 
