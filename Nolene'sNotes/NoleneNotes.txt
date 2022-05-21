@@ -33,19 +33,14 @@ Added 3 .svelte pages
 
 /library/components/
 -- userporfileform.svelte
-import user database
+import user database & added script to add user data
 
 
 /routes
 -- userprofilepage.svelte
--- newuserprofile.svelt
+
+
+-- newuserprofile.svelte
+added basic form
 
 Updates to the code 21.5.2022
-
-1.
-Added firebase function calling userdatabase from fireb.js firestore
-
-2.
-in userprofileform pointed to the userdatabase function in fireb.js
-
-Changes to original code
