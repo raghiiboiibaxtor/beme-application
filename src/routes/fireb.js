@@ -20,19 +20,5 @@ const app = initializeApp(firebaseConfig);
 // ** connecting to Firebase database *** \\
 //Initialise Services
 export const userdatabase = getFirestore(app)
-//adding data
-import { collection, addDoc } from "firebase/firestore"; 
-
-try {
-  const docRef = await addDoc(collection(userdatabase, "UsersDetail"), {
-    Named: "Alan",
-    Surname: "Mathison",
-    Current: "Student"
-  });
-
-  console.log("Document written with ID: ", docRef.id);
-} catch (e) {
-  console.error("Error adding document: ", e);
-}
 
 export default app;

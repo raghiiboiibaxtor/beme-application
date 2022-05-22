@@ -1,6 +1,6 @@
 
 
-<h1>Welcome to BeMe</h1>
+/*<h1>Welcome to BeMe</h1>
 
   <h2>Enter the basics to get started</h2>
 
@@ -11,8 +11,5 @@
     <br>
     <label for="surname">Surname:</label>
     <input type="text" name="surname" required>
-    
-    <button>Save</button>
-
-    
-  </form>
+        
+    <a href="/index"><button type="submit" class="btn btn-primary">Submit</button></a>
