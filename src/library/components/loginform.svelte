@@ -24,7 +24,7 @@
                 const user = userCredential.user
                 // Storing user ID locally (allowing for access of user's files locally)
                 // Tokens & user's private data will be stored in Firebase
-                localStorage.setItem('uid', user.uid);
+                localStorage.setItemn('uid', user.uid);
                 // Directing to "home page" aka project route 
                 goto("/")
             
@@ -40,7 +40,7 @@
             .then((userCredential)=>{
                 const user = userCredential.user
                 localStorage.setItem('uid', user.uid);
-                goto("/")
+                goto("/newuserprofilepage")
             
                 // Catching errors
             }).catch((error) => {
