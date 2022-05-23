@@ -1,7 +1,6 @@
-  
-   
-<script>
-   // importing firebase database requirments
+//!removed this from the fireb.js file and attempt to add it to the userprofileform.svelte instead
+
+// importing firebase database requirments
 import {
     getFirestore,
     collection,
@@ -35,15 +34,22 @@ getDocs(collect_Users_Details)
     console.log(users)
   })
 
+  //NewUserProfile(with a form) called add
+    const addprofile = document.querySelector('.addbasic')
+    addprofile.addEventListener('Submit',(e)=> {
+      e.preventDefault()
+    
+      //using the form addbasic in the userprofileform.svelte will take the user input and save the data into UsersDetail collection
+      addDoc(collect_Users_Details,
+      {
+        Name: addprofile.name.value,
+        Surname: addprofile.surname.value,
+      })
+      .then(() => goto("/"))
 
+    })
 
-</script>
-
-
-
-<h1>Welcome to BeMe</h1>
-
-  <h2>Enter the basics to get started</h2>
-
-
-
+  //User Unsubscribes using a form delete
+  //const unsubscribe = document.querySelector('.delete')
+  //unsubscribe.addEventListener('Submit',(e)=> {
+    //e.preventDefault()

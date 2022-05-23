@@ -1,14 +1,7 @@
 // Importing the Firebase functions needed from SDKs
+
 import { initializeApp } from "firebase/app";
-
-// importing firebase database requirments
-import {
-  getFirestore,
-  collection,
-  getDocs,
-  doc
-}from 'firebase/firestore'
-
+import {getFirestore} from 'firebase/firestore'
 
 
 // Firebase app configuration
@@ -24,32 +17,8 @@ const firebaseConfig = {
 // Initializise Firebase
 const app = initializeApp(firebaseConfig);
 
+// ** connecting to Firebase database *** \\
 //Initialise Services
-
-const userdatabase = getFirestore()
-
-
-//collection ref 
-// importing the function collection from the firebase libarary and then pass the database in firestore as an argument and reference to the collection in firebase
-const colRef = collection(userdatabase,'UsersDetail')
-
-//getting collection data (firebase) by using the firebase function 'GetDocs'
-//this is returning all the data in our firebase database
-getDocs(colRef)
-.then((snapshot)=>
-  {
-    //user array
-    let users =[]
-    // running throuhg the DATAbase storing it into the array 
-    snapshot.docs.forEach((data) => {
-        users.push({...data.data(), id: data.id})
-    })
-    //displaying the actual DATA from our database in a console log (not on screen)
-    console.log(users)
-  }
-)
-
+export const userdatabase = getFirestore(app)
 
 export default app;
-
-

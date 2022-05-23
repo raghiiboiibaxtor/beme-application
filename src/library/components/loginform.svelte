@@ -1,14 +1,15 @@
+   
 <script>
     // Declaring JavaScript
+    // Importing libraries 
     import {goto} from '$app/navigation';
     import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+    
 
     // Declaring & Passing local variable title
     export let title;
-
     // Initialising local variable with getAuth()
-    const auth = getAuth()
-
+    const auth = getAuth()  
     function login()
     {
         // Declaring local variables to grab info from UI 
@@ -23,30 +24,31 @@
                 const user = userCredential.user
                 // Storing user ID locally (allowing for access of user's files locally)
                 // Tokens & user's private data will be stored in Firebase
-                localStorage.setItem('uid', user.uid);
-                // Directing to project route index.svelte
+                localStorage.setItemn('uid', user.uid);
+                // Directing to "home page" aka project route 
                 goto("/")
             
                 // Catching errors
             }).catch((error) => {
                 console.error(error)
+                window.alert("!Woops! We don't recongnise the combination entered, please check your credentials and try again")
+                
             })
         }
-        
         else { // If user does not exist: create new user
             createUserWithEmailAndPassword(auth, email, password) 
             .then((userCredential)=>{
                 const user = userCredential.user
                 localStorage.setItem('uid', user.uid);
-                goto("/")
+                goto("/newuserprofilepage")
             
                 // Catching errors
             }).catch((error) => {
                 console.error(error)
+                window.alert("You are already part of the team! :) ")
             })
         }
     }
-
 </script>
 
 <div class="login">
@@ -80,9 +82,6 @@
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-              
-        
-        
         {#if title == "Login"}
           <p class="float-end mt-3">
             Not a user? <a href="/signup" class="card-link">Sign Up</a>
