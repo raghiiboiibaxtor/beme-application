@@ -4,5 +4,5 @@
 </script>
 
 
-<NewUser title="newuserprofilepage"></NewUser>
+<NewUser title="newuserprofile"></NewUser>
 

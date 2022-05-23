@@ -53,3 +53,37 @@ getDocs(collect_Users_Details)
   //const unsubscribe = document.querySelector('.delete')
   //unsubscribe.addEventListener('Submit',(e)=> {
     //e.preventDefault()
+
+
+/* const addprofile = document.querySelector('.addbasic')
+      addprofile.addEventListener('Submit',(e)=> {
+      e.preventDefault()
+
+using the form addbasic, taking the user input and save the data into UsersDetail collection in firestore database
+  addDoc(collect_Users_Details,
+  {
+      Name: addprofile.name.value,
+      Surname: addprofile.surname.value,
+  })
+      .then(() => goto("/"))
+
+  
+  
+  pushing data manually to database , keeping the code here as a template/reference 
+      try {
+      const docRef = await addDoc(collection(userdatabase, "UsersDetail"), {
+          Named: "Alan",
+          Surname: "Mathison",
+          Current: "Student"
+  });*/
+
+
+    <!-- <form class="addbasics">
+    <label for="name">Name:</label>
+    <input type="text" name="name" required>
+    <br>
+    <br>
+    <label for="surname">Surname:</label>
+    <input type="text" name="surname" required>
+        
+    <a href="/index"><button type="submit" class="btn btn-primary">Submit</button></a>-->
