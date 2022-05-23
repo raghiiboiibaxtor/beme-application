@@ -1,0 +1,57 @@
+npm commands
+
+APPLICATION database variable name == userdatabase
+FIRESTORE collection(aka database) name == UsersDetail
+
+All commands:
+
+    access, adduser, audit, bin, bugs, cache, ci, completion,
+    config, dedupe, deprecate, diff, dist-tag, docs, doctor,
+    edit, exec, explain, explore, find-dupes, fund, get, help,
+    hook, init, install, install-ci-test, install-test, link,
+    ll, login, logout, ls, org, outdated, owner, pack, ping,
+    pkg, prefix, profile, prune, publish, rebuild, repo,
+    restart, root, run-script, search, set, set-script,
+    shrinkwrap, star, stars, start, stop, team, test, token,
+    uninstall, unpublish, unstar, update, version, view, whoam
+
+Updates to code 22.5.2022
+
+-- loginform.svelte
+Added a  'pop up error message' window.alert("You are already part of the team! :) ") if user already exist when trying to sign up.
+Added a  'pop up error message' window.alert("!Woops! We don't recongnise the combination entered, please check your credentials and try again") if user entered the wrong credentials.
+
+Played around with sign out - broke the app - put it on the back burner
+Try to get the sign up page to re-direct to new form (not working) - user profile form has the code to enter users data.
+
+
+
+**********************************************************************************************************
+
+Updates to the code 21.5.2022
+
+Step 1:
+
+Added to fireb.js
+import Firebase/ firestore
+initialsed a database
+
+
+step 2:
+
+Added 3 .svelte pages
+
+/library/components/
+-- userporfileform.svelte
+import user database & added script to add user data
+
+entered sample code to add users manually to the database and a form for users to enter (not linked to the database yet) 
+
+
+/routes
+-- userprofilepage.svelte
+
+
+-- newuserprofile.svelte
+added basic form
+
