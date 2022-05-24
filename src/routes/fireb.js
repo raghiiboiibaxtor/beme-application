@@ -1,7 +1,8 @@
 // Importing the Firebase functions needed from SDKs
 
+import { database } from "firebase-admin";
 import { initializeApp } from "firebase/app";
-import {getFirestore} from 'firebase/firestore'
+import { getFirestore } from "firebase/firestore";
 
 
 // Firebase app configuration
@@ -20,5 +21,59 @@ const app = initializeApp(firebaseConfig);
 // ** connecting to Firebase database *** \\
 //Initialise Services
 export const userdatabase = getFirestore(app)
+
+
+import { collection, addDoc,getDocs, doc, setDoc} from "firebase/firestore";
+
+class Users {
+  constructor (name, surname) {
+      this.name = name;
+      this.surname = surname;
+  }
+  toString() {
+      return 'Hello '+ this.name + ', ' + this.surname;
+  }
+}
+
+// Firestore data converter
+const userdetails = {
+  toFirestore: (user) => {
+      return {
+          name: user.name,
+          surname: user.surname
+          };
+  },
+  fromFirestore: (snapshot, options) => {
+      const data = snapshot.data(options);
+      return new Users(data.name, data.surname);
+  }
+};
+
+//colletion is autosetting the document ref number
+const ref = doc(collection(userdatabase, "UsersDetail")).withConverter(userdetails);
+await setDoc(ref, new Users("Jam", "Donut"));
+
+
+/*adding info
+try {
+    const docRef = await addDoc(collection(userdatabase, "UsersDetail"), {
+      first: "Ada",
+      last: "Lovelace",
+      born: 1815
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);*/
+  }
+  
+
+  //read data
+  const querySnapshot = await getDocs(collection(userdatabase, "UsersDetails"));
+  querySnapshot.forEach((doc) => {
+    console.log(`${doc.id} => ${doc.data()}`);
+  });
+
+  
+
 
 export default app;

@@ -1,3 +1,5 @@
+
+<script>
 //!removed this from the fireb.js file and attempt to add it to the userprofileform.svelte instead
 
 // importing firebase database requirments
@@ -35,7 +37,8 @@ getDocs(collect_Users_Details)
   })
 
   //NewUserProfile(with a form) called add
-    const addprofile = document.querySelector('.addbasic')
+    
+  const addprofile = document.querySelector('.addbasic')
     addprofile.addEventListener('Submit',(e)=> {
       e.preventDefault()
     
@@ -51,15 +54,15 @@ getDocs(collect_Users_Details)
 
   //User Unsubscribes using a form delete
   //const unsubscribe = document.querySelector('.delete')
-  //unsubscribe.addEventListener('Submit',(e)=> {
+  unsubscribe.addEventListener('Submit',(e)=> {
     //e.preventDefault()
 
 
-/* const addprofile = document.querySelector('.addbasic')
+ const addprofile = document.querySelector('.addbasic')
       addprofile.addEventListener('Submit',(e)=> {
       e.preventDefault()
 
-using the form addbasic, taking the user input and save the data into UsersDetail collection in firestore database
+// using the form addbasic, taking the user input and save the data into UsersDetail collection in firestore database
   addDoc(collect_Users_Details,
   {
       Name: addprofile.name.value,
@@ -69,16 +72,18 @@ using the form addbasic, taking the user input and save the data into UsersDetai
 
   
   
-  pushing data manually to database , keeping the code here as a template/reference 
+  //pushing data manually to database , keeping the code here as a template/reference 
       try {
       const docRef = await addDoc(collection(userdatabase, "UsersDetail"), {
           Named: "Alan",
           Surname: "Mathison",
           Current: "Student"
-  });*/
+  });
 
 
-    <!-- <form class="addbasics">
+</script>
+
+
     <label for="name">Name:</label>
     <input type="text" name="name" required>
     <br>
@@ -86,4 +91,4 @@ using the form addbasic, taking the user input and save the data into UsersDetai
     <label for="surname">Surname:</label>
     <input type="text" name="surname" required>
         
-    <a href="/index"><button type="submit" class="btn btn-primary">Submit</button></a>-->
+    <a href="/index"><button type="submit" class="btn btn-primary">Submit</button></a>

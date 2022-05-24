@@ -15,6 +15,11 @@ All commands:
     shrinkwrap, star, stars, start, stop, team, test, token,
     uninstall, unpublish, unstar, update, version, view, whoam
 
+
+npx kill-port 4200
+
+
+
 Updates to code 22.5.2022
 
 -- loginform.svelte
@@ -55,3 +60,13 @@ entered sample code to add users manually to the database and a form for users t
 -- newuserprofile.svelte
 added basic form
 
+form
+    <form class="addbasics">
+    <label for="name">Name:</label>
+    <input type="text" name="name" required>
+    <br>
+    <br>
+    <label for="surname">Surname:</label>
+    <input type="text" name="surname" required>
+        
+    <a href="/index"><button type="submit" class="btn btn-primary">Submit</button></a>
