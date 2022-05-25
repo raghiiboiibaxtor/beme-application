@@ -38,7 +38,7 @@
             .then((userCredential)=>{
                 const user = userCredential.user
                 localStorage.setItem('uid', user.uid);
-                goto("/")
+                goto("/profile")
             
                 // Catching errors
             }).catch((error) => {
