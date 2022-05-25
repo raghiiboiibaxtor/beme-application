@@ -1,6 +1,6 @@
 // Importing the Firebase functions needed from SDKs
 
-import { database } from "firebase-admin";
+//import { database } from "firebase-admin";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
@@ -23,7 +23,7 @@ const app = initializeApp(firebaseConfig);
 export const userdatabase = getFirestore(app)
 
 
-import { collection, addDoc,getDocs, doc, setDoc} from "firebase/firestore";
+import { collection, addDoc, getDocs, doc, setDoc, getDoc} from "firebase/firestore";
 
 class Users {
   constructor (name, surname) {
@@ -34,6 +34,8 @@ class Users {
       return 'Hello '+ this.name + ', ' + this.surname;
   }
 }
+
+const alltheusers = firebase.firestore().collection('UsersDetail');
 
 // Firestore data converter
 const userdetails = {
@@ -49,9 +51,11 @@ const userdetails = {
   }
 };
 
-//colletion is autosetting the document ref number
+//by adding colletion ().withConverter (collection) document ref number will autogenerate
 const ref = doc(collection(userdatabase, "UsersDetail")).withConverter(userdetails);
 await setDoc(ref, new Users("Jam", "Donut"));
+
+
 
 
 /*adding info
@@ -64,16 +68,21 @@ try {
     console.log("Document written with ID: ", docRef.id);
   } catch (e) {
     console.error("Error adding document: ", e);*/
-  }
+  
   
 
   //read data
-  const querySnapshot = await getDocs(collection(userdatabase, "UsersDetails"));
+  const querySnapshot = await getDocs(collection(userdatabase, "users"));
   querySnapshot.forEach((doc) => {
     console.log(`${doc.id} => ${doc.data()}`);
   });
 
-  
-
-
+const docRef = doc(collection(userdatabase, "UsersDetail"));
+const docSnap = await getDoc(docRef);
+if (docSnap.exists()) {
+  console.log("Document data:", docSnap.data());
+} else {
+  // doc.data() will be undefined in this case
+  console.log("No such document!");
+}
 export default app;
