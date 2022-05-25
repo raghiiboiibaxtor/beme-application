@@ -1,5 +1,5 @@
 <script> 
-export let text; // Setting up props 
+    export let text; // Setting up props 
 </script>
 
 <div class="header-container">
