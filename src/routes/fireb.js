@@ -2,7 +2,7 @@
 import { getAuth } from "firebase/auth";
 //import { database } from "firebase-admin";
 import { initializeApp } from "firebase/app";
-import { getFirestore,collection, addDoc, getDocs, doc, setDoc, getDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, doc, setDoc, getDoc } from "firebase/firestore";
 
 
 // Firebase app configuration
@@ -33,7 +33,7 @@ class Users {
   }
 }
 
-const alltheusers = userdatabase.firestore().collection('UsersDetail');
+const alltheusers = firebase.firestore().collection('UsersDetail');
 
 // Firestore data converter
 const userdetails = {
