@@ -1,8 +1,8 @@
 // Importing the Firebase functions needed from SDKs
-
+import { getAuth } from "firebase/auth";
 //import { database } from "firebase-admin";
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore,collection, addDoc, getDocs, doc, setDoc, getDoc } from "firebase/firestore";
 
 
 // Firebase app configuration
@@ -23,8 +23,6 @@ const app = initializeApp(firebaseConfig);
 export const userdatabase = getFirestore(app)
 
 
-import { collection, addDoc, getDocs, doc, setDoc, getDoc} from "firebase/firestore";
-
 class Users {
   constructor (name, surname) {
       this.name = name;
@@ -35,7 +33,7 @@ class Users {
   }
 }
 
-const alltheusers = firebase.firestore().collection('UsersDetail');
+const alltheusers = userdatabase.firestore().collection('UsersDetail');
 
 // Firestore data converter
 const userdetails = {
