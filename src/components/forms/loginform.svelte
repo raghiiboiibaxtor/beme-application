@@ -16,6 +16,7 @@
         // Variables will be used to authenticate user
         let email = document.getElementById('login-email-input').value;
         let password = document.getElementById('login-password-input').value;
+        
         // If title & login match, authenticate the user and sign them in using Firebase Auth SDKs & Cloud Functions
         if (title == "Login"){
             signInWithEmailAndPassword(auth, email, password) // Signing user in
@@ -38,7 +39,7 @@
             .then((userCredential)=>{
                 const user = userCredential.user
                 localStorage.setItem('uid', user.uid);
-                goto("/")
+                goto("/profile")
             
                 // Catching errors
             }).catch((error) => {
