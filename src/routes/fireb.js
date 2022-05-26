@@ -1,6 +1,6 @@
-// Importing the Firebase functions needed from SDKs
+// Importing the Firebase functions needed from SDKs and Firestore
 import { initializeApp } from "firebase/app";
-
+import { getFirestore, collection, addDoc, getDocs, doc, setDoc, getDoc} from "firebase/firestore";
 
 // Firebase app configuration
 const firebaseConfig = {
@@ -14,5 +14,10 @@ const firebaseConfig = {
 
 // Initializise Firebase
 const app = initializeApp(firebaseConfig);
+
+// ** connecting to Firebase database *** \\
+//Initialise Services
+export const userdatabase = getFirestore(app)
+
 
 export default app;
