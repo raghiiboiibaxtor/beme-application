@@ -1,60 +1,68 @@
 <script>
 
-import {goto} from '$app/navigation';
-import { collection, getDocs, doc, setDoc} from "firebase/firestore";
-
-
-// ** connecting to Firebase database *** \\
-//Initialise Services
-const _userDatabase = getFirestore(app)
+//import {goto} from '$app/navigation';
+import {collection, doc, addDoc} from "firebase/firestore";
+//import {_userdatabase} from "../../routes/fireb.js";
 
 //variable used to pass data to profile.svelte
-export let _helloUser
+//export let Userform;
+
+//adding data 3xtimes
+/*
+  const docRef = addDoc(collection(_userdatabase, "UsersDetail"), {
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815
+  });
+  console.log("Document written with ID: ", docRef.id);
 
 
 class Users {
-  constructor (name, surname) 
-  {
-      this.name = name;
-      this.surname = surname;
-  }
+    constructor (name, surname) 
+        {
+            this.name = name;
+            this.surname = surname;
+        }
 }
 
-
-//  Cloud Firestore converts the objects to supported data types.
+    
+  Cloud Firestore converts the objects to supported data types.
 const _userDetails = 
-{
-  toFirestore: (user) => 
-  {
-      return {
-          name: user.name,
-          surname: user.surname
-          };
-  },
-  fromFirestore: (snapshot, options) => 
-  {
-      const data = snapshot.data(options);
-      return new Users(data.name, data.surname);
-  }
-};
-
-
+    {
+        toFirestore: (user) => 
+            {
+                return {
+                    name: user.name,
+                    surname: user.surname
+                    };
+            },
+        fromFirestore: (snapshot, options) => 
+            {
+                const data = snapshot.data(options);
+                return new Users(data.name, data.surname);
+            }
+    }
 
 // Declaring local variables to grab info from form in UI 
-     
-let _userName = document.getElementById('name').value;
-let _userSurname = document.getElementById('surname').value;
-
 // Then writes it to the database by adding colletion ().withConverter (collection) document _ref number will autogenerate
 
-const _ref = doc(collection(_userDatabase, "UsersDetail")).withConverter(_userDetails);
-await setDoc(_ref, new Users(_userName, _userSurname));
-
-
-</script>
+async function _addUsertoFirestore() 
+    {
+        
+        let _userName = document.getElementById('name').value;
+        let _userSurname = document.getElementById('surname').value;
 
  
-     
+            const _ref = doc(collection(_userdatabase, "UsersDetail")).withConverter(_userDetails);
+            await addDoc(_ref, new Users(_userName, _userSurname));
+
+            console.log("Document written with ID: ", docRef.id);
+        }*/
+    
+  </script>
+
+
+     <!--
     <form class="container">
         <div class="card">
             <div class="card-body">
@@ -77,9 +85,10 @@ await setDoc(_ref, new Users(_userName, _userSurname));
                 </div>
             </div>
             <button type="submit" class="btn btn-primary"
-                style="margin-left: 15px; margin-top: 10px">
+                style="margin-left: 15px; margin-top: 10px" on:click={_addUsertoFirestore}>
                 Submit
             </button>
         </div>
-    </form>
+    </form>-->
 
+  
